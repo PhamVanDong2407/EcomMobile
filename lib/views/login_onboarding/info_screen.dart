@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({super.key});
@@ -234,7 +235,9 @@ class _btnFinishState extends State<btnFinish> {
     return SizedBox(
       width: double.infinity, // Đảm bảo nút chiếm toàn bộ chiều rộng
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          context.go('/homepage');
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xff8E6CEF),
           shape: RoundedRectangleBorder(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'forgotpass_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -56,8 +55,7 @@ class btnBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        // Xử lý khi nhấn nút (ví dụ: quay lại màn hình trước)
-        Navigator.pop(context);
+        context.go('/signin/email');
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xff342F3F),
@@ -186,7 +184,9 @@ class _btnSignupState extends State<btnSignup> {
         SizedBox(
           width: double.infinity, // Đảm bảo nút chiếm toàn bộ chiều rộng
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/verify-password');
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff8E6CEF),
               shape: RoundedRectangleBorder(
@@ -216,22 +216,17 @@ class textBottom extends StatelessWidget {
     return Row(
       children: [
         const Text(
-          "Forgot Password ?",
+          "Already have an account?",
           style: TextStyle(
             color: Colors.white,
           ),
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const ForgotpassScreen(),
-              ),
-            );
+            context.go('/signin/email');
           },
           child: const Text(
-            ' Reset',
+            ' Sign In',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

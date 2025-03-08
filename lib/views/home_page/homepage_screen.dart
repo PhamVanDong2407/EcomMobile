@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/HomeProduct_model.dart';
+import '../../models/homepage_model.dart';
 
 class HomepageScreen extends StatelessWidget {
   const HomepageScreen({super.key});

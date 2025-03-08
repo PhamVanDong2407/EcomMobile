@@ -1,5 +1,5 @@
-import 'package:appecommer/views/login_onboarding/signin_email_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class VerifypassScreen extends StatefulWidget {
   const VerifypassScreen({super.key});
@@ -44,12 +44,7 @@ class _VerifypassScreenState extends State<VerifypassScreen> {
                       width: double.infinity, // Đảm bảo nút chiếm toàn bộ chiều rộng
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) => const SigninEmailScreen(),
-                            ),
-                          );
+                          context.go('/signin/email');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff8E6CEF),

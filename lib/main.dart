@@ -1,22 +1,18 @@
-import 'package:appecommer/views/home_page/detailcate_screen.dart';
-import 'package:appecommer/views/home_page/detailhoddies_screen.dart';
-import 'package:appecommer/views/home_page/homepage_screen.dart';
-import 'package:appecommer/views/login_onboarding/onboarding-screen.dart';
-import 'package:appecommer/views/notifi/notifi_screen.dart';
+import 'package:appecommer/routers/app_route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      home: NotifiScreen(),
     );
   }
 }

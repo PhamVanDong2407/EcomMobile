@@ -1,6 +1,5 @@
-import 'package:appecommer/views/login_onboarding/signin_password_screen.dart';
-import 'package:appecommer/views/login_onboarding/signup_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SigninEmailScreen extends StatefulWidget {
   const SigninEmailScreen({super.key});
@@ -17,27 +16,20 @@ class _SigninEmailScreenState extends State<SigninEmailScreen> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25),
         child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 123),
-              TextTitle(),
-              SizedBox(height: 30),
-              Expanded(
-                // Sử dụng Expanded để mở rộng không gian cho TextField
-                child: SingleChildScrollView(
-                  // Thêm SingleChildScrollView để tránh tràn màn hình
-                  child: Column(
-                    children: const [
-                      TextForm(),
-                      SizedBox(height: 70),
-                      btnSignin(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+          child: SingleChildScrollView(
+            // Thêm SingleChildScrollView để cuộn màn hình
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 123),
+                TextTitle(),
+                SizedBox(height: 30),
+                // Bỏ Expanded và sử dụng Column trực tiếp
+                TextForm(),
+                SizedBox(height: 70),
+                btnSignin(),
+              ],
+            ),
           ),
         ),
       ),
@@ -98,12 +90,7 @@ class _TextFormState extends State<TextForm> {
           width: double.infinity, // Đảm bảo nút chiếm toàn bộ chiều rộng
           child: ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const SigninPasswordScreen(),
-                ),
-              );
+              context.go('/signin/password');
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff8E6CEF),
@@ -132,12 +119,7 @@ class _TextFormState extends State<TextForm> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const SignupScreen(),
-                  ),
-                );
+                context.go('/signup');
               },
               child: const Text(
                 ' Create One',

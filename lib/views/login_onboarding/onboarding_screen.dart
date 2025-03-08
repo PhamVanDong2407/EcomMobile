@@ -1,5 +1,6 @@
-import 'package:appecommer/views/login_onboarding/signin_email_screen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Onboardingscreen extends StatefulWidget {
   const Onboardingscreen({super.key});
@@ -14,10 +15,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
     super.initState();
     // Delay 2 seconds and then navigate to SigninEmailScreen
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const SigninEmailScreen()),
-      );
+      context.go('/signin/email');
     });
   }
 

@@ -1,5 +1,6 @@
-import 'package:appecommer/views/login_onboarding/verifypass_screen.dart';
+import 'package:appecommer/views/login_onboarding/verify_password_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ForgotpassScreen extends StatefulWidget {
   const ForgotpassScreen({super.key});
@@ -43,8 +44,7 @@ class btnBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        // Xử lý khi nhấn nút (ví dụ: quay lại màn hình trước)
-        Navigator.pop(context);
+        context.go('/signin/password');
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xff342F3F),

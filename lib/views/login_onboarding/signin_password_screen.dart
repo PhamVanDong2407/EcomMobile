@@ -1,5 +1,5 @@
-import 'package:appecommer/views/login_onboarding/forgotpass_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SigninPasswordScreen extends StatefulWidget {
   const SigninPasswordScreen({super.key});
@@ -95,7 +95,9 @@ class _TextFormState extends State<TextForm> {
         SizedBox(
           width: double.infinity, // Đảm bảo nút chiếm toàn bộ chiều rộng
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/info');
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff8E6CEF),
               shape: RoundedRectangleBorder(
@@ -123,12 +125,7 @@ class _TextFormState extends State<TextForm> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const ForgotpassScreen(),
-                  ),
-                );
+                context.go('/forgot-password');
               },
               child: const Text(
                 ' Reset',

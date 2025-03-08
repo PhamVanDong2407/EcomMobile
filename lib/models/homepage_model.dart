@@ -1,16 +1,13 @@
-// Model class for hoodie products
-import 'dart:ui';
-
-class HoodieProduct {
+class Product {
   final String name;
   final double price;
+  final double? originalPrice;
   final String imageUrl;
-  final Color color;
 
-  HoodieProduct({
+  Product({
     required this.name,
     required this.price,
+    this.originalPrice,
     required this.imageUrl,
-    required this.color,
   });
 }
